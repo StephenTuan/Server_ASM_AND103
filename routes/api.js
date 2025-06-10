@@ -9,6 +9,7 @@ router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
 
+// get list fruist
 router.get('/list', async(req, res)=> {
   try {
     const data = await modelFruist.find({}).populate('id_category');
@@ -36,6 +37,7 @@ router.post('/add_fruist', async(req, res)=>{
   }
 });
 
+// update fruist
 router.put('/update_fruist/:id', async (req, res) => {
   try {
     const data = await modelFruist.findByIdAndUpdate(req.params.id, req.body, { new: true });
@@ -49,6 +51,7 @@ router.put('/update_fruist/:id', async (req, res) => {
   }
 });
 
+//delete fruist
 router.delete('/delete_fruist/:id', async (req, res) => {
   try {
     const data = await modelFruist.findByIdAndDelete(req.params.id);
